@@ -7,7 +7,7 @@ export class Routes {
                 abstract: true,
                 views: {
                     "global@": {
-                        templateUrl: '/AppRead/views/WebApp.html',
+                        templateUrl: '/ClientApps/views/WebApp.html',
                         controller: WebControllerNames.WebAppController
                     }
                 }
@@ -16,7 +16,7 @@ export class Routes {
                 url: "/notconnected",
                 views: {
                     "global@": {
-                        templateUrl: '/AppRead/views/NotConnected.html',
+                        templateUrl: '/ClientApps/views/NotConnected.html',
                         controller: WebControllerNames.WrongConnectedController
                     }
                 }
@@ -24,7 +24,7 @@ export class Routes {
             .state('waiting', <ng.ui.IState>{
                 url: "/waiting",
                 views: {
-                    "global@": { templateUrl: '/AppRead/views/Waiting.html' }
+                    "global@": { templateUrl: '/ClientApps/views/Waiting.html' }
                 }
             });
         $urlRouterProvider.otherwise('/');

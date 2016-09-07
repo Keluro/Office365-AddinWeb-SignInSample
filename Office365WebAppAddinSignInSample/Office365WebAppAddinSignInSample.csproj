@@ -214,6 +214,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CloseHub.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SpaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -292,6 +293,12 @@
     <Content Include="bower_components\system.js\dist\system.js" />
     <Content Include="bower_components\system.js\dist\system.src.js" />
     <Content Include="ClientApps\config.js" />
+    <Content Include="ClientApps\views\BadConnected.html" />
+    <Content Include="ClientApps\views\MainAddin.html" />
+    <Content Include="ClientApps\views\NotConnected.html" />
+    <Content Include="ClientApps\views\Waiting.html" />
+    <Content Include="ClientApps\views\WebApp.html" />
+    <Content Include="Content\loader.gif" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -474,6 +481,7 @@
     <Content Include="Views\Account\CloseAuto.cshtml" />
     <Content Include="Views\Spa\Addin.cshtml" />
     <Content Include="Views\Spa\Web.cshtml" />
+    <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -491,6 +499,7 @@
     <TypeScriptCompile Include="ClientApps\controllers\NoOfficeGlobalController.ts" />
     <TypeScriptCompile Include="ClientApps\controllers\OfficeGlobalController.ts" />
     <TypeScriptCompile Include="ClientApps\controllers\WrongConnectedController.ts" />
+    <TypeScriptCompile Include="ClientApps\directives\SpinnerDirective.ts" />
     <TypeScriptCompile Include="ClientApps\ItemsRegistrar.ts" />
     <TypeScriptCompile Include="ClientApps\models\UserInfoDto.ts" />
     <TypeScriptCompile Include="ClientApps\routesRegistrar.ts" />

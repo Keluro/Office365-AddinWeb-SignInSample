@@ -19,7 +19,7 @@ System.register(["ItemsRegistrar"], function(exports_1, context_1) {
                         abstract: true,
                         views: {
                             "global@": {
-                                templateUrl: '/AppRead/views/WebApp.html',
+                                templateUrl: '/ClientApps/views/WebApp.html',
                                 controller: ItemsRegistrar_1.WebControllerNames.WebAppController
                             }
                         }
@@ -28,7 +28,7 @@ System.register(["ItemsRegistrar"], function(exports_1, context_1) {
                         url: "/notconnected",
                         views: {
                             "global@": {
-                                templateUrl: '/AppRead/views/NotConnected.html',
+                                templateUrl: '/ClientApps/views/NotConnected.html',
                                 controller: ItemsRegistrar_1.WebControllerNames.WrongConnectedController
                             }
                         }
@@ -36,7 +36,7 @@ System.register(["ItemsRegistrar"], function(exports_1, context_1) {
                         .state('waiting', {
                         url: "/waiting",
                         views: {
-                            "global@": { templateUrl: '/AppRead/views/Waiting.html' }
+                            "global@": { templateUrl: '/ClientApps/views/Waiting.html' }
                         }
                     });
                     $urlRouterProvider.otherwise('/');

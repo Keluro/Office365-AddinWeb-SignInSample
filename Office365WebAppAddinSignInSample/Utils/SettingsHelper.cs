@@ -9,8 +9,6 @@ namespace Office365WebAppAddinSignInSample.Utils
 {
     public class SettingsHelper
     {
-
-
         public const string GraphApiMyOrganization = GraphApi + "myorganization";
 
         private const string _authorizationUri = "https://login.windows.net";
@@ -22,31 +20,18 @@ namespace Office365WebAppAddinSignInSample.Utils
         {
             get
             {
-                var clientId2 = ConfigurationManager.AppSettings["ida:ClientIdApp2"];
-                if (string.IsNullOrEmpty(clientId2)) { throw new ArgumentException("clientId2 is null or empty"); }
+                var clientId2 = ConfigurationManager.AppSettings["ida:ClientIdApp"];
+                if (string.IsNullOrEmpty(clientId2)) { throw new ArgumentException("ClientIdApp is null or empty"); }
                 return clientId2;
             }
         }
-
-   
-
         public static ClientCredential GetApp2Credentials()
         {
-            string appkey2 = ConfigurationManager.AppSettings["ida:AppKeyApp2"];
-            if (string.IsNullOrEmpty(appkey2)) { throw new ArgumentException("appkey2 is null or empty"); }
+            string appkey2 = ConfigurationManager.AppSettings["ida:AppKeyApp"];
+            if (string.IsNullOrEmpty(appkey2)) { throw new ArgumentException("AppKeyApp is null or empty"); }
 
             return new ClientCredential(ClientIdApp2, appkey2);
         }
-
-       
-        public static string PublicWebsiteUrl
-        {
-            get
-            {
-                return ConfigurationManager.AppSettings["app:publicurl"];
-            }
-        }
-
        
         public static string AuthorizationUri
         {

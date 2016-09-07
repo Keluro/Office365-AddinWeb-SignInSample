@@ -8,24 +8,26 @@ namespace Office365WebAppAddinSignInSample
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+            var cssPath = new string[]
+            {
+                "~/bower_components/office-ui-fabric/dist/css/fabric.css",
+                "~/bower_components/office-ui-fabric/dist/css/fabric.components.css",
+                "~/Content/style.css",
+            };
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*"));
+            var webBundle = new StyleBundle("~/css").Include(cssPath);
+            bundles.Add(webBundle);
 
-            // Use the development version of Modernizr to develop with and learn from. Then, when you're
-            // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
+            string[] libPath = new string[]{
+                 "~/Scripts/jquery-1.10.2.js",
+                "~/bower_components/angular/angular.js",
+                "~/bower_components/angular-ui-router/release/angular-ui-router.js",
+                "~/Scripts/jquery.signalR-2.2.0.min.js"
+            };
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+            bundles.Add(new ScriptBundle("~/js").Include(libPath));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+            BundleTable.EnableOptimizations = false;
         }
     }
 }
