@@ -46,8 +46,8 @@
     <TypeScriptOutDir>ClientApps\js\out</TypeScriptOutDir>
     <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
     <TypeScriptNoEmitOnError>False</TypeScriptNoEmitOnError>
-    <TypeScriptSourceMap>False</TypeScriptSourceMap>
-    <TypeScriptMapRoot />
+    <TypeScriptSourceMap>True</TypeScriptSourceMap>
+    <TypeScriptMapRoot>ClientApps</TypeScriptMapRoot>
     <TypeScriptSourceRoot>ClientApps</TypeScriptSourceRoot>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -503,6 +503,12 @@
     <TypeScriptCompile Include="ClientApps\Util\LoaderClearer.ts" />
     <TypeScriptCompile Include="ClientApps\Util\Util.ts" />
     <TypeScriptCompile Include="ClientApps\web.ts" />
+    <TypeScriptCompile Include="typings\browser.d.ts" />
+    <TypeScriptCompile Include="typings\browser\ambient\angular-ui-router\index.d.ts" />
+    <TypeScriptCompile Include="typings\browser\ambient\angular\index.d.ts" />
+    <TypeScriptCompile Include="typings\browser\ambient\jquery\index.d.ts" />
+    <TypeScriptCompile Include="typings\browser\ambient\office-js\index.d.ts" />
+    <TypeScriptCompile Include="typings\browser\ambient\signalr\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

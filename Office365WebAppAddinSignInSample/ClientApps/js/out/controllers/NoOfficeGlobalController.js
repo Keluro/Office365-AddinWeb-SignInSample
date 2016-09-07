@@ -30,3 +30,4 @@ System.register(["controllers/GlobalController"], function(exports_1, context_1)
         }
     }
 });
+//# sourceMappingURL=../../../ClientApps/controllers/NoOfficeGlobalController.js.map

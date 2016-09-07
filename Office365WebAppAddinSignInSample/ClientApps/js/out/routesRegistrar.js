@@ -49,3 +49,4 @@ System.register(["ItemsRegistrar"], function(exports_1, context_1) {
         }
     }
 });
+//# sourceMappingURL=../../ClientApps/routesRegistrar.js.map

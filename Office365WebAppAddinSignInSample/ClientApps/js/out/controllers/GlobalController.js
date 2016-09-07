@@ -79,3 +79,4 @@ System.register(["Util/Util", "controllers/WrongConnectedController"], function(
         }
     }
 });
+//# sourceMappingURL=../../../ClientApps/controllers/GlobalController.js.map
