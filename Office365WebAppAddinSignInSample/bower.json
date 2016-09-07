@@ -11,6 +11,6 @@
     "angular": "^1.5.8",
     "system.js": "^0.19.38",
     "angular-ui-router": "^0.3.1",
-    "office-ui-fabric-core": "office-ui-fabric#^4.0.0"
+    "office-ui-fabric": "2.6.1"
   }
 }
