@@ -14,8 +14,12 @@
     <div class="loader-container">
         <img src="~/Content/loader.gif" />
     </div>
-    <div id="web-app" ng-controller="GlobalController as globalCtrl" style="display:none">
+    <div id="app-container" ng-controller="GlobalController as globalCtrl" style="display:none">
         <div ui-view="main"></div>
+        <div class="bottom-info">
+            <p>This sample has been created by <a target="_blank" href="https://keluro.com">Keluro</a>.</p>
+            <p>Help us maintaining it on <a target="_blank" href="https://github.com/Keluro/Office365-AddinWeb-SignInSample">Github repository</a></p>
+        </div>
     </div>
     @if (ViewBag.IsOfficeModule)
     {

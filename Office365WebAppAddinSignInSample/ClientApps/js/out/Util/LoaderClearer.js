@@ -8,11 +8,11 @@ System.register([], function(exports_1, context_1) {
             LoaderClearer = (function () {
                 function LoaderClearer() {
                 }
-                LoaderClearer.ShowWebApp = function () {
+                LoaderClearer.StopLoader = function () {
                     var winAny = window;
                     window.clearInterval(winAny.loaderInterval);
                     $(".loader-container").hide();
-                    $("#web-app").show();
+                    $("#app-container").show();
                 };
                 return LoaderClearer;
             }());

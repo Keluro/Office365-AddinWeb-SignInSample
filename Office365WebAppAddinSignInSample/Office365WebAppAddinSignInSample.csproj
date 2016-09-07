@@ -770,7 +770,7 @@
     <Content Include="bower_components\system.js\dist\system.src.js" />
     <Content Include="ClientApps\config.js" />
     <Content Include="ClientApps\views\BadConnected.html" />
-    <Content Include="ClientApps\views\MainAddin.html" />
+    <Content Include="ClientApps\views\Addin.html" />
     <Content Include="ClientApps\views\NotConnected.html" />
     <Content Include="ClientApps\views\Waiting.html" />
     <Content Include="ClientApps\views\WebApp.html" />
@@ -1137,13 +1137,15 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApps\addin.ts" />
+    <TypeScriptCompile Include="ClientApps\bootstrapAddin.ts" />
     <TypeScriptCompile Include="ClientApps\bootstrapWeb.ts" />
     <TypeScriptCompile Include="ClientApps\controllers\GlobalController.ts" />
     <TypeScriptCompile Include="ClientApps\controllers\NoOfficeGlobalController.ts" />
     <TypeScriptCompile Include="ClientApps\controllers\OfficeGlobalController.ts" />
     <TypeScriptCompile Include="ClientApps\controllers\WrongConnectedController.ts" />
     <TypeScriptCompile Include="ClientApps\directives\SpinnerDirective.ts" />
-    <TypeScriptCompile Include="ClientApps\ItemsRegistrar.ts" />
+    <TypeScriptCompile Include="ClientApps\itemsRegistrar.ts" />
     <TypeScriptCompile Include="ClientApps\models\UserInfoDto.ts" />
     <TypeScriptCompile Include="ClientApps\routesRegistrar.ts" />
     <TypeScriptCompile Include="ClientApps\services\ErrorHttpInterceptor.ts" />

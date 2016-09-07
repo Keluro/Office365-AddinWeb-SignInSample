@@ -1,7 +1,7 @@
-System.register(["services/ErrorHttpInterceptor", "services/ServerServices", "Util/Util", "Util/LoaderClearer", "routesRegistrar", "ItemsRegistrar"], function(exports_1, context_1) {
+System.register(["services/ErrorHttpInterceptor", "services/ServerServices", "Util/Util", "Util/LoaderClearer", "routesRegistrar", "itemsRegistrar"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var ErrorHttpInterceptor_1, ServerServices_1, Util_1, LoaderClearer_1, routesRegistrar_1, ItemsRegistrar_1;
+    var ErrorHttpInterceptor_1, ServerServices_1, Util_1, LoaderClearer_1, routesRegistrar_1, itemsRegistrar_1;
     var web;
     return {
         setters:[
@@ -20,13 +20,13 @@ System.register(["services/ErrorHttpInterceptor", "services/ServerServices", "Ut
             function (routesRegistrar_1_1) {
                 routesRegistrar_1 = routesRegistrar_1_1;
             },
-            function (ItemsRegistrar_1_1) {
-                ItemsRegistrar_1 = ItemsRegistrar_1_1;
+            function (itemsRegistrar_1_1) {
+                itemsRegistrar_1 = itemsRegistrar_1_1;
             }],
         execute: function() {
             web = angular.module("web", ['ui.router']);
             web.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $windowProvider) {
-                routesRegistrar_1.Routes.RegisterWebRoutes($stateProvider, $urlRouterProvider);
+                routesRegistrar_1.Routes.RegisterWebRoutes($stateProvider, $urlRouterProvider, false);
                 $httpProvider.interceptors.push(ErrorHttpInterceptor_1.AuthenticationInterceptor.Factory);
             });
             web.run(function ($rootScope, $http, $q, $location) {
@@ -35,9 +35,9 @@ System.register(["services/ErrorHttpInterceptor", "services/ServerServices", "Ut
                         $rootScope.$broadcast('event:checkconnection');
                     }
                 });
-                LoaderClearer_1.LoaderClearer.ShowWebApp();
+                LoaderClearer_1.LoaderClearer.StopLoader();
             });
-            ItemsRegistrar_1.ItemsRegistrar.RegisterWebItems(web);
+            itemsRegistrar_1.ItemsRegistrar.RegisterWebItems(web);
             exports_1("default",web);
         }
     }

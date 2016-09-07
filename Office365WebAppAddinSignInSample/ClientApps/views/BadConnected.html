@@ -1,19 +1,17 @@
-﻿<div>
-    <div ng-hide="wrongNotConnectedAddinCtrl.showEnterApp">
-        <h4>Woops! it looks like accounts do not match</h4>
-        <p><span>You are authenticated with WebAppAddinSample as {{ wrongNotConnectedAddinCtrl.emailFromServer }} but with Outlook as {{ wrongNotConnectedAddinCtrl.emailFromApp }}</span></p>
-        <p>Click SignOut below to fix</p>
-        <div ng-show="wrongNotConnectedAddinCtrl.showSignInButton">
-            <button ng-click="wrongNotConnectedAddinCtrl.signOut()"
-               class="ms-Button whatis">
-                <span class="ms-Button-label">Sign Out</span>
-            </button>
-        </div>
+﻿<div ng-hide="wrongNotConnectedAddinCtrl.showEnterApp">
+    <h4>Woops! it looks like accounts do not match</h4>
+    <p><span>You are authenticated with WebAppAddinSample as {{ wrongNotConnectedAddinCtrl.emailFromServer }} but with Outlook as {{ wrongNotConnectedAddinCtrl.emailFromApp }}</span></p>
+    <p>Click SignOut below to fix</p>
+    <div ng-show="wrongNotConnectedAddinCtrl.showSignInButton">
+        <button ng-click="wrongNotConnectedAddinCtrl.signOut()"
+                class="ms-Button whatis">
+            <span class="ms-Button-label">Sign Out</span>
+        </button>
     </div>
-    <div ng-show="wrongNotConnectedAddinCtrl.showEnterApp" class="centered-spinner-container">
-        <uif-spinner class="centered-spinner" uif-size="large"></uif-spinner>
-    </div>
-    <div ng-show="wrongNotConnectedAddinCtrl.showPopupInstruction">
-        Put something here to explain how to turn on popup for the current browser...
-    </div>
+</div>
+<div ng-show="wrongNotConnectedAddinCtrl.showEnterApp" class="centered-spinner-container">
+    <uif-spinner class="centered-spinner" uif-size="large"></uif-spinner>
+</div>
+<div ng-show="wrongNotConnectedAddinCtrl.showPopupInstruction">
+    Put something here to explain how to turn on popup for the current browser...
 </div>

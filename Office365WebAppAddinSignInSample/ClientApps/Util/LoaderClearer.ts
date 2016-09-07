@@ -1,8 +1,8 @@
 ﻿export class LoaderClearer {
-    public static ShowWebApp(): void {
+    public static StopLoader(): void {
         var winAny = <any>window;
         window.clearInterval(winAny.loaderInterval);
         $(".loader-container").hide();
-        $("#web-app").show();
+        $("#app-container").show();
     }
 }

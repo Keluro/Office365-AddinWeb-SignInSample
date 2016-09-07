@@ -12,13 +12,13 @@ System.register(["ItemsRegistrar"], function(exports_1, context_1) {
             Routes = (function () {
                 function Routes() {
                 }
-                Routes.RegisterWebRoutes = function ($stateProvider, $urlRouterProvider) {
+                Routes.RegisterWebRoutes = function ($stateProvider, $urlRouterProvider, isAddin) {
                     $stateProvider
                         .state('logged', {
                         url: "/",
                         views: {
                             "main@": {
-                                templateUrl: '/ClientApps/views/WebApp.html',
+                                templateUrl: isAddin ? '/ClientApps/views/Addin.html' : '/ClientApps/views/WebApp.html',
                             }
                         }
                     })
@@ -27,7 +27,7 @@ System.register(["ItemsRegistrar"], function(exports_1, context_1) {
                         views: {
                             "main@": {
                                 templateUrl: '/ClientApps/views/NotConnected.html',
-                                controller: ItemsRegistrar_1.WebControllerNames.WrongConnectedController
+                                controller: ItemsRegistrar_1.ControllerNames.WrongConnectedController
                             }
                         }
                     })
@@ -36,7 +36,7 @@ System.register(["ItemsRegistrar"], function(exports_1, context_1) {
                         views: {
                             "main@": {
                                 templateUrl: '/ClientApps/views/BadConnected.html',
-                                controller: ItemsRegistrar_1.WebControllerNames.WrongConnectedController
+                                controller: ItemsRegistrar_1.ControllerNames.WrongConnectedController
                             }
                         }
                     })
@@ -47,8 +47,6 @@ System.register(["ItemsRegistrar"], function(exports_1, context_1) {
                         }
                     });
                     $urlRouterProvider.otherwise('/');
-                };
-                Routes.RegisterAddinRoutes = function ($stateProvider, $urlRouterProvider) {
                 };
                 return Routes;
             }());
