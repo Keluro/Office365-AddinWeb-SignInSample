@@ -7,7 +7,8 @@
 - Your solution may not be simply an Outlook add-in but also a standalone web app secured by Office 365 and Azure AD. This is the case for **Keluro - Smart Email Sharing** where we have the [add-in](https://store.office.com/en-us/app.aspx?assetid=WA104380149&ui=en-US&rs=en-US&ad=US&appredirect=false) and the [Office 365 web-app](https://store.office.com/en-us/app.aspx?assetid=SA000000070&ui=en-US&rs=en-US&ad=US&appredirect=false). This sample shows a way to share the authentication scheme for a better user experience.
 
 - Some situations are handled in this sample: for example, when you switch accounts with the add-in the account your are logged in with Outlook may not match the one your authenticated with the web app.
-![Web app](Docs/mailbox3.jpg =400x)
+
+<img src="Docs/mailbox3.jpg" width="400">
 
 - Most of the new Extension point provided for Outlook add-ins are supported. Such as the [Outlook Modules](http://dev.office.com/docs/add-ins/outlook/extension-module-outlook-add-ins), we display the web app in modules. 
 
@@ -17,8 +18,10 @@
 ## Two Single Page applications served by Asp.net
 
 In this sample there are two Single Page Applications (written with Angular.js 1): the add-in and the web app. The server side code is written in C#/ASP.NET (both MVC and WebAPI)
-![Web app](Docs/web-app.jpg =600x)
-![Addin](Docs/addin.png =600x)
+
+<img src="Docs/web-app.jpg" width="400">
+<img src="Docs/addin.png" width="400">
+
 
 ## Technical information
 
