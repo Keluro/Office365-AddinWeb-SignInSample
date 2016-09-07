@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace kmailteamWeb.Controllers
+namespace Office365WebAppAddinSignInSample.Controllers
 {
     public class SpaController : Controller
     {

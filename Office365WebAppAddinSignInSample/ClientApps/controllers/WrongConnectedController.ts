@@ -22,7 +22,7 @@ class WrongConnectedController {
 
 }
 
-export class NoOfficeNotConnectedController extends WrongConnectedController implements INotConnectedController {
+export class NoOfficeWrongConnectedController extends WrongConnectedController implements INotConnectedController {
 
     public showSignInButton: boolean;
     public showPopupInstruction: boolean;

@@ -20,17 +20,13 @@ export abstract class GlobalController {
     public emailFromServer: string;
     public userName: string;
    
-    constructor(protected $scope: IGlobalControllerScope,
-        protected $q: ng.IQService, protected $location: ng.ILocationService,
-        protected $state: ng.ui.IStateService,
-        protected $window: ng.IWindowService,
-        protected serverService: ServerService,
-        protected officeService: IOfficeService, protected signalRService: SignalRService) {
+    constructor(protected $scope: IGlobalControllerScope, protected $q: ng.IQService,
+        protected $location: ng.ILocationService, protected $state: ng.ui.IStateService,
+        protected $window: ng.IWindowService, protected serverService: ServerService,
+        protected signalRService: SignalRService) {
 
         $scope.globalCtrl = this;
-        $scope.$on('event:checkcompatitbility', () => {
-            this.checkcompatibility();
-        });
+        
 
         $scope.$on('event:checkconnection', () => {
             this.serverService.getUserInfo()
@@ -53,25 +49,6 @@ export abstract class GlobalController {
             this.isLogged = false;
             $scope.$broadcast(OfficeWrongConnectedController.RegenerateSecretKey);
             this.$state.go('notconnected');
-        });
-    }
-
-   
-    private checkcompatibility(): void {
-        var userEmailPromise = this.serverService.getUserInfo();
-        var userInfo: LightUserInfoDto = this.officeService.getMyUserInfo();
-        userEmailPromise.then((infoFromServer: MailUserInfoDto) => {
-            if (Util.compareCaseInsensitive(userInfo.UpnName, infoFromServer.UpnName) || Util.compareCaseInsensitive(userInfo.UpnName, infoFromServer.Email)) {
-                this.userName = userInfo.DisplayName;
-                this.emailFromServer = infoFromServer.Email;
-                this.isLogged = true;
-            } else {
-                this.userName = userInfo.DisplayName;
-                this.emailFromServer = infoFromServer.Email;
-                this.emailFromApp = userInfo.UpnName;
-                this.isLogged = false;
-                this.$state.go('badconnected');
-            }
         });
     }
 

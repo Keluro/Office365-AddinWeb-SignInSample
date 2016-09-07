@@ -21,6 +21,15 @@ export class Routes {
                     }
                 }
             })
+            .state('badconnected', <ng.ui.IState>{
+                url: "/badconnected",
+                views: {
+                    "global@": {
+                        templateUrl: '/ClientApps/views/BadConnected.html',
+                        controller: WebControllerNames.WrongConnectedController
+                    }
+                }
+            })
             .state('waiting', <ng.ui.IState>{
                 url: "/waiting",
                 views: {

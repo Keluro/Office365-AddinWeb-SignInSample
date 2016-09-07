@@ -6,7 +6,7 @@ System.register([], function(exports_1, context_1) {
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
-    var WrongConnectedController, NoOfficeNotConnectedController, OfficeWrongConnectedController;
+    var WrongConnectedController, NoOfficeWrongConnectedController, OfficeWrongConnectedController;
     return {
         setters:[],
         execute: function() {
@@ -16,9 +16,9 @@ System.register([], function(exports_1, context_1) {
                 }
                 return WrongConnectedController;
             }());
-            NoOfficeNotConnectedController = (function (_super) {
-                __extends(NoOfficeNotConnectedController, _super);
-                function NoOfficeNotConnectedController($scope, $window, serverService) {
+            NoOfficeWrongConnectedController = (function (_super) {
+                __extends(NoOfficeWrongConnectedController, _super);
+                function NoOfficeWrongConnectedController($scope, $window, serverService) {
                     _super.call(this, $window);
                     this.$scope = $scope;
                     this.serverService = serverService;
@@ -27,12 +27,12 @@ System.register([], function(exports_1, context_1) {
                     this.noPopupSignInUrl = this.serverService.getAccountSignInUrl();
                     this.showSignInButton = true;
                 }
-                NoOfficeNotConnectedController.prototype.signIn = function () {
+                NoOfficeWrongConnectedController.prototype.signIn = function () {
                     this.$window.location.href = this.noPopupSignInUrl;
                 };
-                return NoOfficeNotConnectedController;
+                return NoOfficeWrongConnectedController;
             }(WrongConnectedController));
-            exports_1("NoOfficeNotConnectedController", NoOfficeNotConnectedController);
+            exports_1("NoOfficeWrongConnectedController", NoOfficeWrongConnectedController);
             OfficeWrongConnectedController = (function (_super) {
                 __extends(OfficeWrongConnectedController, _super);
                 function OfficeWrongConnectedController($scope, $state, $window, serverService, signalRService, officeService) {

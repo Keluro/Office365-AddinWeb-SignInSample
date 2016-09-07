@@ -4,21 +4,15 @@ import {IOfficeService} from "services/IOfficeService";
 import {Util} from "Util/Util"
 import {SignalRService} from "services/SignalRService"
 
-//Controller used in Web app (not add-in) supports the ability to choose language.
-export class NoOfficeMainController extends GlobalController {
-    public selectedLangValue: string;
-    public langs: [{ Value: string; Display: string }];
-
-    public isSuperAdmin: boolean;
+export class NoOfficeGlobalController extends GlobalController {
     public showSignOut: boolean;
 
-    public constructor($scope: IGlobalControllerScope,
-        $q: ng.IQService, $location: ng.ILocationService, $state: ng.ui.IStateService, $timeout: ng.ITimeoutService, $window: ng.IWindowService,
-        serverService: ServerService, officeService: IOfficeService, signalRService: SignalRService) {
-        super($scope, $q, $location, $state, $window, serverService, officeService, signalRService);
+    public constructor($scope: IGlobalControllerScope, $q: ng.IQService,
+        $location: ng.ILocationService, $state: ng.ui.IStateService,
+        $timeout: ng.ITimeoutService, $window: ng.IWindowService,
+        serverService: ServerService, signalRService: SignalRService) {
 
-        //The chosen language will be the one used by the add-in and stored in localstorage.
-      
+        super($scope, $q, $location, $state, $window, serverService, signalRService);
         this.showSignOut = true;
     }
 

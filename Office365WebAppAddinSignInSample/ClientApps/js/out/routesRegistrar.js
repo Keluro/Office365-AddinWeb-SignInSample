@@ -33,6 +33,15 @@ System.register(["ItemsRegistrar"], function(exports_1, context_1) {
                             }
                         }
                     })
+                        .state('badconnected', {
+                        url: "/badconnected",
+                        views: {
+                            "global@": {
+                                templateUrl: '/ClientApps/views/BadConnected.html',
+                                controller: ItemsRegistrar_1.WebControllerNames.WrongConnectedController
+                            }
+                        }
+                    })
                         .state('waiting', {
                         url: "/waiting",
                         views: {

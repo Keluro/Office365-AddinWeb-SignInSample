@@ -22,7 +22,7 @@ namespace Office365WebAppAddinSignInSample
                  "~/Scripts/jquery-1.10.2.js",
                 "~/bower_components/angular/angular.js",
                 "~/bower_components/angular-ui-router/release/angular-ui-router.js",
-                "~/Scripts/jquery.signalR-2.2.0.min.js"
+                "~/Scripts/jquery.signalR-2.2.1.js"
             };
 
             bundles.Add(new ScriptBundle("~/js").Include(libPath));

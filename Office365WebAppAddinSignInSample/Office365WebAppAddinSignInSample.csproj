@@ -19,10 +19,10 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode />
+    <IISExpressSSLPort>44301</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -210,10 +210,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountApiController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CloseHub.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SpaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -481,7 +481,9 @@
     <Content Include="Views\Account\CloseAuto.cshtml" />
     <Content Include="Views\Spa\Addin.cshtml" />
     <Content Include="Views\Spa\Web.cshtml" />
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -504,7 +506,6 @@
     <TypeScriptCompile Include="ClientApps\models\UserInfoDto.ts" />
     <TypeScriptCompile Include="ClientApps\routesRegistrar.ts" />
     <TypeScriptCompile Include="ClientApps\services\ErrorHttpInterceptor.ts" />
-    <TypeScriptCompile Include="ClientApps\services\FakeOfficeService.ts" />
     <TypeScriptCompile Include="ClientApps\services\IOfficeService.ts" />
     <TypeScriptCompile Include="ClientApps\services\OfficeService.ts" />
     <TypeScriptCompile Include="ClientApps\services\ServerServices.ts" />
@@ -541,7 +542,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>65491</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:65491/</IISUrl>
+          <IISUrl>https://localhost:44301</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

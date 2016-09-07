@@ -1,7 +1,7 @@
-System.register(["controllers/WrongConnectedController", "controllers/NoOfficeGlobalController", "controllers/OfficeGlobalController", "services/OfficeService", "services/SignalRService", "services/FakeOfficeService", "services/ServerServices"], function(exports_1, context_1) {
+System.register(["controllers/WrongConnectedController", "controllers/NoOfficeGlobalController", "controllers/OfficeGlobalController", "services/OfficeService", "services/SignalRService", "services/ServerServices"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var WrongConnectedController_1, NoOfficeGlobalController_1, OfficeGlobalController_1, OfficeService_1, SignalRService_1, FakeOfficeService_1, ServerServices_1;
+    var WrongConnectedController_1, NoOfficeGlobalController_1, OfficeGlobalController_1, OfficeService_1, SignalRService_1, ServerServices_1;
     var WebControllerNames, ItemsRegistrar;
     return {
         setters:[
@@ -19,9 +19,6 @@ System.register(["controllers/WrongConnectedController", "controllers/NoOfficeGl
             },
             function (SignalRService_1_1) {
                 SignalRService_1 = SignalRService_1_1;
-            },
-            function (FakeOfficeService_1_1) {
-                FakeOfficeService_1 = FakeOfficeService_1_1;
             },
             function (ServerServices_1_1) {
                 ServerServices_1 = ServerServices_1_1;
@@ -42,17 +39,13 @@ System.register(["controllers/WrongConnectedController", "controllers/NoOfficeGl
                 ItemsRegistrar.RegisterWebItems = function (module) {
                     var hasOfficeContext = window.hasOfficeContext === true;
                     if (hasOfficeContext) {
-                        module.controller(WebControllerNames.WrongConnectedController, ["$scope", "$state", "$window", "ApplicationContextService", "ServerService", "SignalRService", "OfficeService", WrongConnectedController_1.OfficeWrongConnectedController]);
+                        module.controller(WebControllerNames.WrongConnectedController, ["$scope", "$state", "$window", "ServerService", "SignalRService", "OfficeService", WrongConnectedController_1.OfficeWrongConnectedController]);
+                        module.controller(WebControllerNames.GlobalController, ["$scope", "$q", "$location", "$state", "$timeout", "$window", "ServerService", "OfficeService", "SignalRService", OfficeGlobalController_1.OfficeGlobalController]);
                     }
                     else {
-                        module.controller(WebControllerNames.WrongConnectedController, ["$scope", "$window", "ApplicationContextService", "ServerService", WrongConnectedController_1.NoOfficeNotConnectedController]);
-                    }
-                    module.controller(WebControllerNames.GlobalController, ["$scope", "$q", "$location", "$state", "$timeout", "$window", "ServerService", "OfficeService", "LocalizedStringsService", "SignalRService", hasOfficeContext ? OfficeGlobalController_1.OfficeGlobalController : NoOfficeGlobalController_1.NoOfficeMainController]);
-                    if (hasOfficeContext) {
                         module.service("OfficeService", ["$q", "ServerService", OfficeService_1.OfficeService]);
-                    }
-                    else {
-                        module.service("OfficeService", ["$q", FakeOfficeService_1.FakeOfficeService]);
+                        module.controller(WebControllerNames.WrongConnectedController, ["$scope", "$window", "ServerService", WrongConnectedController_1.NoOfficeWrongConnectedController]);
+                        module.controller(WebControllerNames.GlobalController, ["$scope", "$q", "$location", "$state", "$timeout", "$window", "ServerService", "SignalRService", hasOfficeContext ? OfficeGlobalController_1.OfficeGlobalController : NoOfficeGlobalController_1.NoOfficeGlobalController]);
                     }
                     module.service("ServerService", ["$http", "$q", ServerServices_1.ServerService]);
                     module.service("SignalRService", ["$q", "$timeout", "$location", "ServerService", "OfficeService", SignalRService_1.SignalRService]);
