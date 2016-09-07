@@ -3,6 +3,11 @@
     <p>You are logged-in inside Outlook and everything is fine !</p>
 </div>
 <div class="ms-Button"
+     ng-click="globalCtrl.clickOpenLibraryInAnotherWindow()">
+    <span class="ms-Button-label">Open Web App</span>
+</div>
+
+<div class="ms-Button"
      ng-click="globalCtrl.clickSignout()"
      ng-show="globalCtrl.showSignOut">
     <span class="ms-Button-label">Sign Out</span>
