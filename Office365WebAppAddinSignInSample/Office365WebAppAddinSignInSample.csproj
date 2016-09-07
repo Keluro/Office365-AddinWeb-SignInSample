@@ -45,10 +45,10 @@
     <TypeScriptOutFile />
     <TypeScriptOutDir>ClientApps\js\out</TypeScriptOutDir>
     <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
-    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+    <TypeScriptNoEmitOnError>False</TypeScriptNoEmitOnError>
     <TypeScriptSourceMap>False</TypeScriptSourceMap>
     <TypeScriptMapRoot />
-    <TypeScriptSourceRoot />
+    <TypeScriptSourceRoot>ClientApps</TypeScriptSourceRoot>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -486,8 +486,6 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="bower_components\office-ui-fabric-core\src\utilities\Animate.ts" />
-    <TypeScriptCompile Include="bower_components\office-ui-fabric-core\src\utilities\Ease.ts" />
     <TypeScriptCompile Include="ClientApps\bootstrapWeb.ts" />
     <TypeScriptCompile Include="ClientApps\controllers\GlobalController.ts" />
     <TypeScriptCompile Include="ClientApps\controllers\NoOfficeGlobalController.ts" />
@@ -505,12 +503,6 @@
     <TypeScriptCompile Include="ClientApps\Util\LoaderClearer.ts" />
     <TypeScriptCompile Include="ClientApps\Util\Util.ts" />
     <TypeScriptCompile Include="ClientApps\web.ts" />
-    <TypeScriptCompile Include="typings\browser.d.ts" />
-    <TypeScriptCompile Include="typings\browser\ambient\angular-ui-router\index.d.ts" />
-    <TypeScriptCompile Include="typings\browser\ambient\angular\index.d.ts" />
-    <TypeScriptCompile Include="typings\browser\ambient\jquery\index.d.ts" />
-    <TypeScriptCompile Include="typings\browser\ambient\office-js\index.d.ts" />
-    <TypeScriptCompile Include="typings\browser\ambient\signalr\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
