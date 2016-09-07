@@ -6,7 +6,6 @@ import {SignalRService} from "services/SignalRService";
 import {ServerService} from "services/ServerServices";
 
 export class WebControllerNames {
-    public static WebAppController = "WebAppController";
     public static WrongConnectedController = "WrongConnectedController";
     public static GlobalController = "GlobalController";
 }

@@ -20,7 +20,7 @@ web.run(($rootScope: ng.IRootScopeService, $http: ng.IHttpService, $q: ng.IQServ
             $rootScope.$broadcast('event:checkconnection');
         }
     });
-    LoaderClearer.ClearInterval();
+    LoaderClearer.ShowWebApp();
 });
 
 ItemsRegistrar.RegisterWebItems(web);

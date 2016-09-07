@@ -4,18 +4,16 @@ export class Routes {
         $stateProvider
             .state('logged', <ng.ui.IState>{
                 url: "/",
-                abstract: true,
                 views: {
-                    "global@": {
+                    "main@": {
                         templateUrl: '/ClientApps/views/WebApp.html',
-                        controller: WebControllerNames.WebAppController
                     }
                 }
             })
             .state('notconnected', <ng.ui.IState>{
                 url: "/notconnected",
                 views: {
-                    "global@": {
+                    "main@": {
                         templateUrl: '/ClientApps/views/NotConnected.html',
                         controller: WebControllerNames.WrongConnectedController
                     }
@@ -24,7 +22,7 @@ export class Routes {
             .state('badconnected', <ng.ui.IState>{
                 url: "/badconnected",
                 views: {
-                    "global@": {
+                    "main@": {
                         templateUrl: '/ClientApps/views/BadConnected.html',
                         controller: WebControllerNames.WrongConnectedController
                     }
@@ -33,7 +31,7 @@ export class Routes {
             .state('waiting', <ng.ui.IState>{
                 url: "/waiting",
                 views: {
-                    "global@": { templateUrl: '/ClientApps/views/Waiting.html' }
+                    "main@": { templateUrl: '/ClientApps/views/Waiting.html' }
                 }
             });
         $urlRouterProvider.otherwise('/');

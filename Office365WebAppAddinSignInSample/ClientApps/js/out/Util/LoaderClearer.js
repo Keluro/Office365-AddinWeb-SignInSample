@@ -8,7 +8,7 @@ System.register([], function(exports_1, context_1) {
             LoaderClearer = (function () {
                 function LoaderClearer() {
                 }
-                LoaderClearer.ClearInterval = function () {
+                LoaderClearer.ShowWebApp = function () {
                     var winAny = window;
                     window.clearInterval(winAny.loaderInterval);
                     $(".loader-container").hide();

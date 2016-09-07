@@ -1,5 +1,11 @@
 ﻿<div>
-    <div>This is the web app</div>
+    <p>Welcome on the web app {{ globalCtrl.emailFromServer }}</p>
+    <p>You are well connected</p>
+</div>
+<div class="ms-Button"
+     ng-click="globalCtrl.clickSignout()"
+     ng-show="globalCtrl.showSignOut">
+    <span class="ms-Button-label">Sign Out</span>
 </div>
 <div>
     <p>This sample has been created by <a href="https://keluro.com">Keluro</a>.</p>

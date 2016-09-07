@@ -10,7 +10,7 @@ namespace Office365WebAppAddinSignInSample.Utils
     public class SettingsHelper
     {
         public const string GraphApiMyOrganization = GraphApi + "myorganization";
-
+        public const string GraphApiMe = @"https://graph.windows.net/me?api-version=1.6";
         private const string _authorizationUri = "https://login.windows.net";
         public const string GraphApi = "https://graph.windows.net/";
         private const string _authority = "https://login.windows.net/common/";

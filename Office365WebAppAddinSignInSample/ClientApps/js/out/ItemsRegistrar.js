@@ -27,7 +27,6 @@ System.register(["controllers/WrongConnectedController", "controllers/NoOfficeGl
             WebControllerNames = (function () {
                 function WebControllerNames() {
                 }
-                WebControllerNames.WebAppController = "WebAppController";
                 WebControllerNames.WrongConnectedController = "WrongConnectedController";
                 WebControllerNames.GlobalController = "GlobalController";
                 return WebControllerNames;

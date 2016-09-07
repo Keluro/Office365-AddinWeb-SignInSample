@@ -35,7 +35,7 @@ System.register(["services/ErrorHttpInterceptor", "services/ServerServices", "Ut
                         $rootScope.$broadcast('event:checkconnection');
                     }
                 });
-                LoaderClearer_1.LoaderClearer.ClearInterval();
+                LoaderClearer_1.LoaderClearer.ShowWebApp();
             });
             ItemsRegistrar_1.ItemsRegistrar.RegisterWebItems(web);
             exports_1("default",web);

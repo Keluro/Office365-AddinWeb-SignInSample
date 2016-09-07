@@ -1,4 +1,6 @@
-﻿using System;
+﻿using kmailteamWeb.Models;
+using Office365WebAppAddinSignInSample.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,24 +12,26 @@ namespace Office365WebAppAddinSignInSample.Controllers
     [Authorize]
     public class AccountApiController : ApiController
     {
-
+        private readonly IConnectedUserProvider _connectedUserProvider;
         public AccountApiController()
         {
+            _connectedUserProvider = new ConnectedUserProvider();
         }
 
+       
+
+
         [HttpGet]
-        public async Task<string> CurrentUser()
+        public async Task<MailUserInfoDto> CurrentUser()
         {
-            //var info = await _connectedUserProvider.GetMailUserInfo(_office365WebCalls);
-            //return new MailUserInfoDto()
-            //{
-            //    ObjectId = info.UserObjectId,
-            //    DisplayName = info.DisplayName,
-            //    UpnName = info.UpnName,
-            //    Email = info.Email,
-            //    ThumbnailUri = MicrosoftRestCallsManager.GetThumbnailClientUrl(info.UpnName)
-            //};
-            return "Mr hardcoded";
+            var info = await _connectedUserProvider.GetMailUserInfo();
+            return new MailUserInfoDto()
+            {
+                ObjectId = info.UserObjectId,
+                DisplayName = info.DisplayName,
+                UpnName = info.UpnName,
+                Email = info.Email
+            };
         }
     }
 }

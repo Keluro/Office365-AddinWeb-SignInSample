@@ -16,18 +16,16 @@ System.register(["ItemsRegistrar"], function(exports_1, context_1) {
                     $stateProvider
                         .state('logged', {
                         url: "/",
-                        abstract: true,
                         views: {
-                            "global@": {
+                            "main@": {
                                 templateUrl: '/ClientApps/views/WebApp.html',
-                                controller: ItemsRegistrar_1.WebControllerNames.WebAppController
                             }
                         }
                     })
                         .state('notconnected', {
                         url: "/notconnected",
                         views: {
-                            "global@": {
+                            "main@": {
                                 templateUrl: '/ClientApps/views/NotConnected.html',
                                 controller: ItemsRegistrar_1.WebControllerNames.WrongConnectedController
                             }
@@ -36,7 +34,7 @@ System.register(["ItemsRegistrar"], function(exports_1, context_1) {
                         .state('badconnected', {
                         url: "/badconnected",
                         views: {
-                            "global@": {
+                            "main@": {
                                 templateUrl: '/ClientApps/views/BadConnected.html',
                                 controller: ItemsRegistrar_1.WebControllerNames.WrongConnectedController
                             }
@@ -45,7 +43,7 @@ System.register(["ItemsRegistrar"], function(exports_1, context_1) {
                         .state('waiting', {
                         url: "/waiting",
                         views: {
-                            "global@": { templateUrl: '/ClientApps/views/Waiting.html' }
+                            "main@": { templateUrl: '/ClientApps/views/Waiting.html' }
                         }
                     });
                     $urlRouterProvider.otherwise('/');
