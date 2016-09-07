@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div id="msgId"></div>
+    <script src="https://appsforoffice.microsoft.com/lib/1/hosted/Office.js" type="text/javascript"></script>
+    <script>
+    Office.initialize = function() {
+        var elt = document.getElementById('msgId');
+        elt.innerText = Office.context.mailbox.item.internetMessageId;
+    };
+    </script>
+</body>
+</html>

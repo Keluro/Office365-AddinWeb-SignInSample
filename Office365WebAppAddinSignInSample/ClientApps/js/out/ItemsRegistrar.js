@@ -41,11 +41,11 @@ System.register(["controllers/WrongConnectedController", "controllers/NoOfficeGl
                 };
                 ItemsRegistrar.Register = function (module, hasOfficeContext) {
                     if (hasOfficeContext) {
+                        module.service("OfficeService", ["$q", "ServerService", OfficeService_1.OfficeService]);
                         module.controller(ControllerNames.WrongConnectedController, ["$scope", "$state", "$window", "ServerService", "SignalRService", "OfficeService", WrongConnectedController_1.OfficeWrongConnectedController]);
                         module.controller(ControllerNames.GlobalController, ["$scope", "$q", "$location", "$state", "$timeout", "$window", "ServerService", "OfficeService", "SignalRService", OfficeGlobalController_1.OfficeGlobalController]);
                     }
                     else {
-                        module.service("OfficeService", ["$q", "ServerService", OfficeService_1.OfficeService]);
                         module.controller(ControllerNames.WrongConnectedController, ["$scope", "$window", "ServerService", WrongConnectedController_1.NoOfficeWrongConnectedController]);
                         module.controller(ControllerNames.GlobalController, ["$scope", "$q", "$location", "$state", "$timeout", "$window", "ServerService", "SignalRService", hasOfficeContext ? OfficeGlobalController_1.OfficeGlobalController : NoOfficeGlobalController_1.NoOfficeGlobalController]);
                     }

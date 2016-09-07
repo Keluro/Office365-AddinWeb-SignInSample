@@ -21,10 +21,10 @@ export class ItemsRegistrar {
     private static Register(module: ng.IModule, hasOfficeContext): void {
         /*CONTROLLERS*/
         if (hasOfficeContext) {
+            module.service("OfficeService", ["$q", "ServerService", OfficeService]);
             module.controller(ControllerNames.WrongConnectedController, ["$scope", "$state", "$window", "ServerService", "SignalRService", "OfficeService", OfficeWrongConnectedController]);
             module.controller(ControllerNames.GlobalController, ["$scope", "$q", "$location", "$state", "$timeout", "$window", "ServerService", "OfficeService", "SignalRService", OfficeGlobalController]);
         } else {
-            module.service("OfficeService", ["$q", "ServerService", OfficeService]);
             module.controller(ControllerNames.WrongConnectedController, ["$scope", "$window", "ServerService", NoOfficeWrongConnectedController]);
             module.controller(ControllerNames.GlobalController, ["$scope", "$q", "$location", "$state", "$timeout", "$window", "ServerService", "SignalRService", hasOfficeContext ? OfficeGlobalController : NoOfficeGlobalController]);
         }
