@@ -2,8 +2,10 @@
 import {NoOfficeGlobalController} from "controllers/NoOfficeGlobalController";
 import {OfficeGlobalController} from "controllers/OfficeGlobalController";
 import {OfficeService} from "services/OfficeService";
+import {FakeOfficeService} from "services/FakeOfficeService";
 import {SignalRService} from "services/SignalRService";
 import {ServerService} from "services/ServerServices";
+import {SpinnerDirective} from "directives/SpinnerDirective";
 
 export class ControllerNames {
     public static WrongConnectedController = "WrongConnectedController";
@@ -25,12 +27,14 @@ export class ItemsRegistrar {
             module.controller(ControllerNames.WrongConnectedController, ["$scope", "$state", "$window", "ServerService", "SignalRService", "OfficeService", OfficeWrongConnectedController]);
             module.controller(ControllerNames.GlobalController, ["$scope", "$q", "$location", "$state", "$timeout", "$window", "ServerService", "OfficeService", "SignalRService", OfficeGlobalController]);
         } else {
+            module.service("OfficeService", ["$q", FakeOfficeService]);
             module.controller(ControllerNames.WrongConnectedController, ["$scope", "$window", "ServerService", NoOfficeWrongConnectedController]);
             module.controller(ControllerNames.GlobalController, ["$scope", "$q", "$location", "$state", "$timeout", "$window", "ServerService", "SignalRService", hasOfficeContext ? OfficeGlobalController : NoOfficeGlobalController]);
         }
 
         module.service("ServerService", ["$http", "$q", ServerService]);
         module.service("SignalRService", ["$q", "$timeout", "$location", "ServerService", "OfficeService", SignalRService]);
+        module.directive('uifSpinner', SpinnerDirective.factory());
     }
 
     public static RegisterAddinItems(module: ng.IModule) {

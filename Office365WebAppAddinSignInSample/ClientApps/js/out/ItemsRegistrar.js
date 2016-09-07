@@ -1,7 +1,7 @@
-System.register(["controllers/WrongConnectedController", "controllers/NoOfficeGlobalController", "controllers/OfficeGlobalController", "services/OfficeService", "services/SignalRService", "services/ServerServices"], function(exports_1, context_1) {
+System.register(["controllers/WrongConnectedController", "controllers/NoOfficeGlobalController", "controllers/OfficeGlobalController", "services/OfficeService", "services/FakeOfficeService", "services/SignalRService", "services/ServerServices", "directives/SpinnerDirective"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var WrongConnectedController_1, NoOfficeGlobalController_1, OfficeGlobalController_1, OfficeService_1, SignalRService_1, ServerServices_1;
+    var WrongConnectedController_1, NoOfficeGlobalController_1, OfficeGlobalController_1, OfficeService_1, FakeOfficeService_1, SignalRService_1, ServerServices_1, SpinnerDirective_1;
     var ControllerNames, ItemsRegistrar;
     return {
         setters:[
@@ -17,11 +17,17 @@ System.register(["controllers/WrongConnectedController", "controllers/NoOfficeGl
             function (OfficeService_1_1) {
                 OfficeService_1 = OfficeService_1_1;
             },
+            function (FakeOfficeService_1_1) {
+                FakeOfficeService_1 = FakeOfficeService_1_1;
+            },
             function (SignalRService_1_1) {
                 SignalRService_1 = SignalRService_1_1;
             },
             function (ServerServices_1_1) {
                 ServerServices_1 = ServerServices_1_1;
+            },
+            function (SpinnerDirective_1_1) {
+                SpinnerDirective_1 = SpinnerDirective_1_1;
             }],
         execute: function() {
             ControllerNames = (function () {
@@ -46,11 +52,13 @@ System.register(["controllers/WrongConnectedController", "controllers/NoOfficeGl
                         module.controller(ControllerNames.GlobalController, ["$scope", "$q", "$location", "$state", "$timeout", "$window", "ServerService", "OfficeService", "SignalRService", OfficeGlobalController_1.OfficeGlobalController]);
                     }
                     else {
+                        module.service("OfficeService", ["$q", FakeOfficeService_1.FakeOfficeService]);
                         module.controller(ControllerNames.WrongConnectedController, ["$scope", "$window", "ServerService", WrongConnectedController_1.NoOfficeWrongConnectedController]);
                         module.controller(ControllerNames.GlobalController, ["$scope", "$q", "$location", "$state", "$timeout", "$window", "ServerService", "SignalRService", hasOfficeContext ? OfficeGlobalController_1.OfficeGlobalController : NoOfficeGlobalController_1.NoOfficeGlobalController]);
                     }
                     module.service("ServerService", ["$http", "$q", ServerServices_1.ServerService]);
                     module.service("SignalRService", ["$q", "$timeout", "$location", "ServerService", "OfficeService", SignalRService_1.SignalRService]);
+                    module.directive('uifSpinner', SpinnerDirective_1.SpinnerDirective.factory());
                 };
                 ItemsRegistrar.RegisterAddinItems = function (module) {
                     ItemsRegistrar.Register(module, true);

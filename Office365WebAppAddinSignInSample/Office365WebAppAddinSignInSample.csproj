@@ -1151,6 +1151,7 @@
     <TypeScriptCompile Include="ClientApps\models\UserInfoDto.ts" />
     <TypeScriptCompile Include="ClientApps\routesRegistrar.ts" />
     <TypeScriptCompile Include="ClientApps\services\ErrorHttpInterceptor.ts" />
+    <TypeScriptCompile Include="ClientApps\services\FakeOfficeService.ts" />
     <TypeScriptCompile Include="ClientApps\services\IOfficeService.ts" />
     <TypeScriptCompile Include="ClientApps\services\OfficeService.ts" />
     <TypeScriptCompile Include="ClientApps\services\ServerServices.ts" />
