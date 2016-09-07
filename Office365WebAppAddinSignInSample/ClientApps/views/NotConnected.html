@@ -1,0 +1,25 @@
+﻿<div class="ms-Grid">
+    <div class="ms-Grid-row">
+    </div>
+    <div class="ms-Grid-row">
+        <div class="ms-Grid-col ms-u-xl6">
+            <h2>
+                Welcome to the Office365 WebAppAddinSignInSample
+            </h2>
+            <div>
+                <p>This sample has been created by <a href="https://keluro.com">Keluro</a>.</p>
+                <p>Help us maintaining it on <a href="https://github.com/Keluro/Office365-AddinWeb-SignInSample">Github repository</a></p>
+            </div>
+        </div>
+        <div class="ms-Grid-col ms-u-xl6">
+            <button class="ms-Button" ng-show="notConnectedCtrl.showSignInButton"
+                    ng-click="notConnectedCtrl.signIn()">
+                <span class="ms-Button-label">Sign-in with Office 365</span>
+            </button>
+
+            <div ng-show="notConnectedCtrl.showPopupInstruction">
+                Put something here to explain how to turn on popup for the current browser...
+            </div>
+        </div>
+    </div>
+</div>
