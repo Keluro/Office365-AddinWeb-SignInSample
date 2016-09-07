@@ -6,7 +6,7 @@
 
 - Your solution may not be simply an Outlook add-in but also a standalone web app secured by Office 365 and Azure AD. This is the case for **Keluro - Smart Email Sharing** where we have the [add-in](https://store.office.com/en-us/app.aspx?assetid=WA104380149&ui=en-US&rs=en-US&ad=US&appredirect=false) and the [Office 365 web-app](https://store.office.com/en-us/app.aspx?assetid=SA000000070&ui=en-US&rs=en-US&ad=US&appredirect=false). This sample shows a way to share the authentication scheme for a better user experience.
 
-- Some situations are handled in this sample. Especially, when you switch accounts with the add-in the account your are logged in with Outlook may not be the same as the one your authenticated with the web app.
+- Some situations are handled in this sample: for example, when you switch accounts with the add-in the account your are logged in with Outlook may not match the one your authenticated with the web app.
 ![Web app](Docs/mailbox3.jpg =400x)
 
 - Most of the new Extension point provided for Outlook add-ins are supported. Such as the [Outlook Modules](http://dev.office.com/docs/add-ins/outlook/extension-module-outlook-add-ins), we display the web app in modules. 
@@ -25,6 +25,6 @@ In this sample there are two Single Page Applications (written with Angular.js 1
 - [Get started with local environment (and the default Azure AD web app provided by Keluro)](Docs/GetStarted.md).
 - [How to register my own Azure AD application for this.](Docs/MyOwnAzureAD.md)
 
-This is an overview of what is implemented: we use a basic ASP.NET cookie for the authentication between application server and the clients. We request the APIs by using ADAL and a token saved in our SQL Server database.
+The following picture is an overview of how the sample works when run locally from your dev machine. We use a basic ASP.NET cookie for the authentication between application server and the clients. We request the APIs by using [ADAL](https://azure.microsoft.com/en-us/documentation/articles/active-directory-authentication-libraries/) and a token saved in our SQL Server database.
 
 ![Addin](Docs/architecture.png)
