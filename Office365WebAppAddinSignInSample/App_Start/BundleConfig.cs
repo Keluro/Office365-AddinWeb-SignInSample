@@ -12,7 +12,7 @@ namespace Office365WebAppAddinSignInSample
             {
                 "~/bower_components/office-ui-fabric/dist/css/fabric.css",
                 "~/bower_components/office-ui-fabric/dist/css/fabric.components.css",
-                "~/Content/style.css",
+                "~/Content/Site.css",
             };
 
             var webBundle = new StyleBundle("~/css").Include(cssPath);
