@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--Created:cb85b80c-f585-40ff-8bfc-12ff4d0e34a9-->
+<OfficeApp
+  xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+  xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides"
+  xsi:type="MailApp">
+  <Id>138f5aa3-56c9-40e3-a691-4a47ca72074c</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>Keluro</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="KSample" />
+  <Description DefaultValue="TODO">
+    <Override Locale="fr-fr" Value="TODO"/>
+  </Description>
+  <IconUrl DefaultValue="https://localhost:44301/Images/kproject2-64.png" />
+  <HighResolutionIconUrl DefaultValue="https://localhost:44301/Images/kproject2-128.png"/>
+  <SupportUrl DefaultValue="http://keluro.com/software/kmailteam/support" />
+  <AppDomains>
+    <AppDomain>https://login.windows.net</AppDomain>
+    <AppDomain>https://login.microsoftonline.com</AppDomain>
+  </AppDomains>
+  <Hosts>
+    <Host Name="Mailbox" />
+  </Hosts>
+  <Requirements>
+    <Sets>
+      <Set Name="MailBox" MinVersion="1.1" />
+    </Sets>
+  </Requirements>
+  <FormSettings>
+    <Form xsi:type="ItemRead">
+      <DesktopSettings>
+        <SourceLocation DefaultValue="https://localhost:44301/Spa/Addin"/>
+        <RequestedHeight>250</RequestedHeight>
+      </DesktopSettings>
+      <TabletSettings>
+        <SourceLocation DefaultValue="https://localhost:44301/Spa/Addin" />
+        <RequestedHeight>250</RequestedHeight>
+      </TabletSettings>
+      <PhoneSettings>
+        <SourceLocation DefaultValue="https://localhost:44301/Spa/Addin" />
+      </PhoneSettings>
+    </Form>
+  </FormSettings>
+  <Permissions>ReadItem</Permissions>
+  <Rule xsi:type="RuleCollection" Mode="Or">
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read" />
+  </Rule>
+  <DisableEntityHighlighting>false</DisableEntityHighlighting>
+    <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides"
+                    xsi:type="VersionOverridesV1_0">
+       <Description resid="residVersionOverrideDesc" />
+      <Requirements>
+        <bt:Sets DefaultMinVersion="1.3">
+          <bt:Set Name="Mailbox" />
+        </bt:Sets>
+      </Requirements>
+      <Hosts>
+        <Host xsi:type="MailHost">
+          <DesktopFormFactor>
+            <FunctionFile resid="residFunctionFileUrl" />
+            <ExtensionPoint xsi:type="CustomPane">
+              <RequestedHeight>250</RequestedHeight>
+              <SourceLocation resid="customPaneUrl"/>
+              <Rule xsi:type="RuleCollection" Mode="Or">
+                <Rule xsi:type="ItemIs" ItemType="Message"/>
+              </Rule>
+            </ExtensionPoint>
+
+            <ExtensionPoint xsi:type="MessageReadCommandSurface">
+              <OfficeTab id="TabDefault">
+                <Group id="msgReadDemoGroup">
+                  <Label resid="groupLabel" />
+                  <Control xsi:type="Button" id="msgReadOpenPaneButton">
+                    <Label resid="paneReadButtonLabel" />
+                    <Supertip>
+                      <Title resid="paneReadSuperTipTitle" />
+                      <Description resid="paneReadSuperTipDescription" />
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="kproject-icon-16" />
+                      <bt:Image size="32" resid="kproject-icon-32" />
+                      <bt:Image size="64" resid="kproject-icon-64" />
+                      <bt:Image size="80" resid="kproject-icon-80" />
+                    </Icon>
+                    <Action xsi:type="ShowTaskpane">
+                      <SourceLocation resid="taskPaneUrl" />
+                    </Action>
+                  </Control>
+                </Group>
+              </OfficeTab>
+            </ExtensionPoint>
+          </DesktopFormFactor>
+        </Host>
+      </Hosts>
+
+      <Resources>
+        <bt:Images>
+          <bt:Image id="kproject-icon-16" DefaultValue="https://localhost:44301/images/kproject2-16.png"/>
+          <bt:Image id="kproject-icon-32" DefaultValue="https://localhost:44301/images/kproject2-32.png"/>
+          <bt:Image id="kproject-icon-64" DefaultValue="https://localhost:44301/images/kproject2-64.png"/>
+          <bt:Image id="kproject-icon-80" DefaultValue="https://localhost:44301/images/kproject2-80.png"/>
+        </bt:Images>
+
+        <bt:Urls>
+          <bt:Url id="residFunctionFileUrl" DefaultValue="https://localhost:44301/FunctionFile/Functions.html" />
+          <bt:Url id="residExtensionPointUrl" DefaultValue="https://localhost:44301/Spa/Web/OfficeModule" />
+          <bt:Url id="taskPaneUrl" DefaultValue="https://localhost:44301/Spa/Addin"/>
+          <bt:Url id="customPaneUrl" DefaultValue="https://localhost:44301/Spa/Addin"/>
+        </bt:Urls>
+
+        <bt:ShortStrings>
+          <bt:String id="groupLabel" DefaultValue="KSample"/>
+          <bt:String id="paneReadButtonLabel" DefaultValue="Show pane">
+            <bt:Override Locale="fr-FR" Value="Afficher le volet"/>
+          </bt:String>
+          <bt:String id="paneReadSuperTipTitle" DefaultValue="Show pane">
+            <bt:Override Locale="fr-FR" Value="Afficher le volet"/>
+          </bt:String>
+        </bt:ShortStrings>
+        <bt:LongStrings>
+          <bt:String id="residVersionOverrideDesc" DefaultValue="TODO">
+            <bt:Override Locale="fr-FR" Value="TODO"/>
+          </bt:String>
+          <bt:String id="paneReadSuperTipDescription" DefaultValue="TODO">
+             <bt:Override Locale="fr-FR" Value="TODO"/>
+          </bt:String>
+        </bt:LongStrings>
+      </Resources>
+    <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1"
+                      xsi:type="VersionOverridesV1_1">
+      <Description resid="residVersionOverrideDesc" />
+      <Requirements>
+        <bt:Sets DefaultMinVersion="1.3">
+          <bt:Set Name="Mailbox" />
+        </bt:Sets>
+      </Requirements>
+      <Hosts>
+        <Host xsi:type="MailHost">
+          <DesktopFormFactor>
+            <FunctionFile resid="residFunctionFileUrl" />
+            <ExtensionPoint xsi:type="CustomPane">
+              <RequestedHeight>250</RequestedHeight>
+              <SourceLocation resid="customPaneUrl"/>
+              <Rule xsi:type="RuleCollection" Mode="Or">
+                <Rule xsi:type="ItemIs" ItemType="Message"/>
+              </Rule>
+            </ExtensionPoint>
+
+            <ExtensionPoint xsi:type="MessageReadCommandSurface">
+              <OfficeTab id="TabDefault">
+                <Group id="msgReadDemoGroup">
+                  <Label resid="groupLabel" />
+                  <Control xsi:type="Button" id="msgReadOpenPaneButton">
+                    <Label resid="paneReadButtonLabel" />
+                    <Supertip>
+                      <Title resid="paneReadSuperTipTitle" />
+                      <Description resid="paneReadSuperTipDescription" />
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="kproject-icon-16" />
+                      <bt:Image size="32" resid="kproject-icon-32" />
+                      <bt:Image size="64" resid="kproject-icon-64" />
+                      <bt:Image size="80" resid="kproject-icon-80" />
+                    </Icon>
+                    <Action xsi:type="ShowTaskpane">
+                      <SourceLocation resid="taskPaneUrl" />
+                    </Action>
+                  </Control>
+                </Group>
+              </OfficeTab>
+            </ExtensionPoint>
+
+            <ExtensionPoint xsi:type="Module">
+              <SourceLocation resid="residExtensionPointUrl" />
+              <Label resid="residExtensionPointLabel" />
+                <CommandSurface>
+                  <CustomTab id="idTab">
+                    <Group id="idGroup">
+                      <Label resid="residGroupNavigationLabel" />
+                      <Control xsi:type="Button" id="group.emaillibrary">
+                        <Label resid="residNavigateLibraryLabel" />
+                        <Supertip>
+                          <Title resid="residNavigateLibraryLabel" />
+                          <Description resid="residNavigationLibraryDesc" />
+                        </Supertip>
+                        <Icon>
+                          <bt:Image size="16" resid="library-icon-16" />
+                          <bt:Image size="32" resid="library-icon-32" />
+                          <bt:Image size="80" resid="library-icon-80" />
+                        </Icon>
+                        <Action xsi:type="ExecuteFunction">
+                          <FunctionName>navigateLibrary</FunctionName>
+                        </Action>
+                      </Control>
+                       <Control xsi:type="Button" id="group.suggestions">
+                        <Label resid="residNavigateSuggestionsLabel" />
+                        <Supertip>
+                          <Title resid="residNavigateSuggestionsLabel" />
+                          <Description resid="residNavigateSuggestionsDesc" />
+                        </Supertip>
+                        <Icon>
+                          <bt:Image size="16" resid="suggestions-icon-16" />
+                          <bt:Image size="32" resid="suggestions-icon-32" />
+                          <bt:Image size="80" resid="suggestions-icon-80" />
+                        </Icon>
+                        <Action xsi:type="ExecuteFunction">
+                          <FunctionName>navigateSuggestions</FunctionName>
+                        </Action>
+                      </Control>
+                       <Control xsi:type="Button" id="group.uservoice">
+                        <Label resid="residNavigateUservoiceLabel" />
+                        <Supertip>
+                          <Title resid="residNavigateUservoiceLabel" />
+                          <Description resid="residNavigateUservoiceDesc" />
+                        </Supertip>
+                        <Icon>
+                          <bt:Image size="16" resid="uservoice-icon-16" />
+                          <bt:Image size="32" resid="uservoice-icon-32" />
+                          <bt:Image size="80" resid="uservoice-icon-80" />
+                        </Icon>
+                        <Action xsi:type="ExecuteFunction">
+                          <FunctionName>navigateUservoice</FunctionName>
+                        </Action>
+                      </Control>
+                    </Group>
+                    <Label resid="residCustomTabLabel" />
+                  </CustomTab>
+                </CommandSurface>
+            </ExtensionPoint>
+          </DesktopFormFactor>
+        </Host>
+      </Hosts>
+      <Resources>
+        <bt:Images>
+          <bt:Image id="kproject-icon-16" DefaultValue="https://localhost:44301/images/kproject2-16.png"/>
+          <bt:Image id="kproject-icon-32" DefaultValue="https://localhost:44301/images/kproject2-32.png"/>
+          <bt:Image id="kproject-icon-64" DefaultValue="https://localhost:44301/images/kproject2-64.png"/>
+          <bt:Image id="kproject-icon-80" DefaultValue="https://localhost:44301/images/kproject2-80.png"/>
+          <bt:Image id="library-icon-16" DefaultValue="https://localhost:44301/images/library-16.png"/>
+          <bt:Image id="library-icon-32" DefaultValue="https://localhost:44301/images/library-32.png"/>
+          <bt:Image id="library-icon-80" DefaultValue="https://localhost:44301/images/library-80.png"/>
+          <bt:Image id="suggestions-icon-16" DefaultValue="https://localhost:44301/images/suggestions-16.png"/>
+          <bt:Image id="suggestions-icon-32" DefaultValue="https://localhost:44301/images/suggestions-32.png"/>
+          <bt:Image id="suggestions-icon-80" DefaultValue="https://localhost:44301/images/suggestions-80.png"/>
+          <bt:Image id="uservoice-icon-16" DefaultValue="https://localhost:44301/images/uservoice-16.png"/>
+          <bt:Image id="uservoice-icon-32" DefaultValue="https://localhost:44301/images/uservoice-32.png"/>
+          <bt:Image id="uservoice-icon-80" DefaultValue="https://localhost:44301/images/uservoice-80.png"/>
+        </bt:Images>
+        <bt:Urls>
+          <bt:Url id="residFunctionFileUrl" DefaultValue="https://localhost:44301/FunctionFile/Functions.html" />
+          <bt:Url id="residExtensionPointUrl" DefaultValue="https://localhost:44301/Spa/Web/OfficeModule" />
+          <bt:Url id="taskPaneUrl" DefaultValue="https://localhost:44301/Spa/Addin"/>
+          <bt:Url id="customPaneUrl" DefaultValue="https://localhost:44301/Spa/Addin"/>
+        </bt:Urls>
+        <bt:ShortStrings>
+          <bt:String id="residExtensionPointLabel" DefaultValue="KSample" />
+          <bt:String id="residGroupNavigationLabel" DefaultValue="TODO" />
+          <bt:String id="residCustomTabLabel" DefaultValue="KSample" />
+          <bt:String id="residNavigateLibraryLabel" DefaultValue="TODO">
+            <bt:Override Locale="fr-FR" Value="TODO"/>
+          </bt:String>
+          <bt:String id="residNavigateSuggestionsLabel" DefaultValue="TODO" >
+            <bt:Override Locale="fr-FR" Value="TODO"/>
+          </bt:String>
+          <bt:String id="residNavigateUservoiceLabel" DefaultValue="TODO" >
+            <bt:Override Locale="fr-FR" Value="TODO"/>
+          </bt:String>
+          <bt:String id="groupLabel" DefaultValue="KSample">
+            <bt:Override Locale="fr-FR" Value="KSample"/>
+          </bt:String>
+          <bt:String id="paneReadButtonLabel" DefaultValue="Show pane">
+            <bt:Override Locale="fr-FR" Value="Afficher le volet"/>
+          </bt:String>
+          <bt:String id="paneReadSuperTipTitle" DefaultValue="Show pane">
+            <bt:Override Locale="fr-FR" Value="Afficher le volet"/>
+          </bt:String>
+        </bt:ShortStrings>
+        <bt:LongStrings>
+          <bt:String id="residNavigationLibraryDesc" DefaultValue="TODO" >
+            <bt:Override Locale="fr-FR" Value="TODO"/>
+          </bt:String>
+          <bt:String id="residNavigateSuggestionsDesc" DefaultValue="TODO" >
+            <bt:Override Locale="fr-FR" Value="TODO"/>
+          </bt:String>
+          <bt:String id="residNavigateUservoiceDesc" DefaultValue="TODO" >
+            <bt:Override Locale="fr-FR" Value="TODO"/>
+          </bt:String>
+          <bt:String id="residVersionOverrideDesc" DefaultValue="TODO">
+            <bt:Override Locale="fr-FR" Value="TODO"/>
+          </bt:String>
+          <bt:String id="paneReadSuperTipDescription" DefaultValue="TODO">
+             <bt:Override Locale="fr-FR" Value="TODO"/>
+          </bt:String>
+        </bt:LongStrings>
+      </Resources>
+    </VersionOverrides>
+  </VersionOverrides>
+</OfficeApp>
