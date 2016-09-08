@@ -1,6 +1,6 @@
 # A sample that leverages the technicalities of SignIn for Outlook Web Add-ins and Multi-tenant Office 365 Web apps.
 
-Another sample for social logins is available with Office add-ins and social logins is available [here](https://github.com/dougperkes/Office-Add-in-AspNetMvc-ServerAuth). 
+Another sample for social logins with Office add-ins is available [here](https://github.com/dougperkes/Office-Add-in-AspNetMvc-ServerAuth). 
 
 ## What is provided by this sample
 
