@@ -1,5 +1,7 @@
 # A sample that leverages the technicalities of SignIn for Outlook Web Add-ins and Multi-tenant Office 365 Web apps.
 
+Another sample for social logins is available with Office add-ins and social logins is available [here](https://github.com/dougperkes/Office-Add-in-AspNetMvc-ServerAuth). 
+
 ## What is provided by this sample
 
 - An Office add-in may need access to Office 365. These new Office "web" add-ins are web apps, the proper way to do this is through [Azure AD](https://azure.microsoft.com/en-us/documentation/articles/active-directory-whatis/). As explained in this [blog post](https://blogs.msdn.microsoft.com/richard_dizeregas_blog/2015/08/10/connecting-to-office-365-from-an-office-add-in/), we may need a popup to achieve this. To overcome this problem Microsoft created the [dialogApi](https://channel9.msdn.com/Shows/Office-Dev-Show/Office-Dev-Show-Episode-26-Using-the-Dialog-API-in-Office-Add-ins). This sample aims at providing a functional solution that uses the **dialogApi** when available and the popup/SignalR technique as a fallback.
