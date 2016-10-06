@@ -1,7 +1,5 @@
 # A sample that leverages the technicalities of Sign-In for Outlook Web Add-ins and Multi-tenant Office 365 Web apps.
 
-Another sample for social logins with Office add-ins is available [here](https://github.com/dougperkes/Office-Add-in-AspNetMvc-ServerAuth). 
-
 ## What is provided by this sample
 
 - An Office add-in may need access to Office 365 APIs and identity. The new Office "web" add-ins are web apps, the proper way to do this is through an [Azure AD](https://azure.microsoft.com/en-us/documentation/articles/active-directory-whatis/) registration. As explained in this [blog post](https://blogs.msdn.microsoft.com/richard_dizeregas_blog/2015/08/10/connecting-to-office-365-from-an-office-add-in/), we may need a popup to achieve this. To overcome this problem Microsoft created the [dialogApi](https://channel9.msdn.com/Shows/Office-Dev-Show/Office-Dev-Show-Episode-26-Using-the-Dialog-API-in-Office-Add-ins). This sample provides a functional solution using the **dialogApi** when available and the popup/SignalR technique as a fallback.
@@ -17,20 +15,22 @@ Another sample for social logins with Office add-ins is available [here](https:/
 
 - You can see how the Azure Graph API can be requested. See method *GetMailUserInfo()* in class **ConnectedUserProvider.cs**
 
+This [documentation page](http://dev.office.com/docs/add-ins/develop/auth-external-add-ins) is also interesting.
+
 ## Comparison with other samples
-Our objective is not to compete with other samples but we try to bring issues not addressed.
+Our objective is not to compete with other samples but we try to bring solutions for problems not already addressed by others.
 
 - [Doug Perkes sample](https://github.com/dougperkes/Office-Add-in-AspNetMvc-ServerAuth) 
-This sample works many social logins and is not Outlook specific. It uses the SignalR approach only and does not use the dialogAPI. The server side technology is ASP.NET MVC.
+This sample works with many social logins and is not Outlook specific. It uses the SignalR approach only and does not use the dialogAPI. The server side technology is ASP.NET MVC.
 
 - [Office Js Helpers](https://github.com/OfficeDev/office-js-helpers)
-Similarly to Doug Perkes, it is not limited to Azure AD and is an authentication for many OAUTH social logins. It is based on the dialogAPI but do not have a fallback solution when not available. It is a very "light weight sample" no server side logic.
+Similarly to Doug Perkes, it is not limited to Azure AD and is an authentication for many OAUTH social logins. It is based on the dialogAPI but do not have a fallback solution when not available. It is a very "light weight" sample no server side logic.
 
 - [Office-Add-in-Nodejs-ServerAuth](https://github.com/OfficeDev/Office-Add-in-Nodejs-ServerAuth)
-I did not review completely this sample but it looks similar to Doug Perkes sample. The server technology is Node.
+We did not review completely this sample but the approach looks similar to the one used in Doug Perkes sample. The server technology is Node.
 
 - [PowerPoint-Add-in-Microsoft-Graph-ASPNET-InsertChart](https://github.com/OfficeDev/PowerPoint-Add-in-Microsoft-Graph-ASPNET-InsertChart)
-
+This sample is specific to Powerpoint and Azure AD (accessing the Graph API). It uses dialogAPI without fallback logic. Server side technology is ASP.NET MVC.
 
 ## Two Single Page applications served by Asp.net
 
