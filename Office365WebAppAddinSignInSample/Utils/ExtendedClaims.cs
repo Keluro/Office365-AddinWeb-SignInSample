@@ -10,5 +10,7 @@ namespace Office365WebAppAddinSignInSample.Utils
         public const string TenantId = "http://schemas.microsoft.com/identity/claims/tenantid";
 
         public const string ObjectId = "http://schemas.microsoft.com/identity/claims/objectidentifier";
+
+        public const string PreferredUsername = "preferred_username";
     }
 }

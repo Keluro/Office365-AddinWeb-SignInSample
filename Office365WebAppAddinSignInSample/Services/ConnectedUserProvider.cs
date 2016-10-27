@@ -1,5 +1,4 @@
-﻿using Microsoft.IdentityModel.Clients.ActiveDirectory;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Office365WebAppAddinSignInSample.Persistence;
 using Office365WebAppAddinSignInSample.Utils;
 using System;
@@ -13,6 +12,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
 namespace Office365WebAppAddinSignInSample.Services
 {

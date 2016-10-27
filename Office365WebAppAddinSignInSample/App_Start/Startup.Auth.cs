@@ -1,5 +1,4 @@
-﻿using Microsoft.IdentityModel.Clients.ActiveDirectory;
-using Microsoft.IdentityModel.Protocols;
+﻿using Microsoft.IdentityModel.Protocols;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Notifications;
@@ -14,6 +13,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using Microsoft.Identity.Client;
+using Microsoft.Owin;
 
 namespace Office365WebAppAddinSignInSample
 {
@@ -44,6 +45,18 @@ namespace Office365WebAppAddinSignInSample
                     ClientId = SettingsHelper.ClientIdApp2,
                     Authority = SettingsHelper.Authority,
                     UseTokenLifetime = false,
+                    // We request both an authorization code and an id_token.
+                    // The id_token seems mandatory for use with OpenIdConnect.
+                    ResponseType = "code id_token",
+                    // The list of scopes we want to have access to.
+                    // For this sample, we require the additional following scopes : 
+                    // - Mail.Read : allows to read users' mail.
+                    // - User.ReadBasic.All : allows to gather basic profile information about
+                    // the user and people in the organization
+                    // offline_access : offline renewal of accesse tokens (not implemented yet in our sample)
+                    Scope = "openid email profile mail.read User.ReadBasic.All offline_access",
+                    
+                    
                     TokenValidationParameters = new System.IdentityModel.Tokens.TokenValidationParameters
                     {
                         // instead of using the default validation (validating against a single issuer value, as we do in line of business apps (single tenant apps)), 
@@ -63,21 +76,27 @@ namespace Office365WebAppAddinSignInSample
                     Notifications = new OpenIdConnectAuthenticationNotifications()
                     {
                         // If there is a code in the OpenID Connect response, redeem it for an access token and refresh token, and store those away. 
-                        AuthorizationCodeReceived = (context) =>
+                        AuthorizationCodeReceived = async (context) =>
                         {
                             var code = context.Code;
 
-                            string tenantID = context.AuthenticationTicket.Identity.FindFirst(ExtendedClaimsType.TenantId).Value;
-                            string userObjectId = context.AuthenticationTicket.Identity.FindFirst(ExtendedClaimsType.ObjectId).Value;
-                            AuthenticationContext authContext = new AuthenticationContext(string.Format("{0}/{1}", SettingsHelper.AuthorizationUri, tenantID), new ADALTokenCache(userObjectId));
+                            ClientCredential credential = new ClientCredential(SettingsHelper.ClientSecret);
+                            var redirectUri = context.Request.Uri.GetLeftPart(UriPartial.Path);
 
-                            ClientCredential credential = SettingsHelper.GetApp2Credentials();
-                            // Get the access token for AAD Graph. Doing this will also initialize the token cache associated with the authentication context
-                            // In theory, you could acquire token for any service your application has access to here so that you can initialize the token cache
-                            Uri redirectUri = new Uri(HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Path));
-                            AuthenticationResult result = authContext.AcquireTokenByAuthorizationCode(code, redirectUri, credential, SettingsHelper.AADGraphResourceId);
+                            // In MSAL, there is no more an "authContext" to create.
+                            // Instead we use a "ConfidentialClientApplication".
+                            var application = new ConfidentialClientApplication(SettingsHelper.ClientIdApp2,
+                                redirectUri.ToString(), credential, 
+                                // For now, we don't have any implementation of an SQL-based TokenCache compatible
+                                // with MSAL, we default to the default in-memory cache.
+                                TokenCache.DefaultSharedUserTokenCache);
 
-                            return Task.FromResult(0);
+                            // NOTE : Here, we don't pass any of the "well-known scopes", ie
+                            // openid, email, profile, offline_access
+                            // Otherwise we would get an ArgumentException, as MSAL handles those automatically.
+                            var authResult = await application.AcquireTokenByAuthorizationCodeAsync(
+                                    "mail.read User.ReadBasic.All".Split(new char[] {' '}),
+                                    code);
                         },
 
                         RedirectToIdentityProvider = (RedirectToIdentityProviderNotification<OpenIdConnectMessage, OpenIdConnectAuthenticationOptions> context) =>

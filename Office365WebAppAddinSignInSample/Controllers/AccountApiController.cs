@@ -15,7 +15,7 @@ namespace Office365WebAppAddinSignInSample.Controllers
         private readonly IConnectedUserProvider _connectedUserProvider;
         public AccountApiController()
         {
-            _connectedUserProvider = new ConnectedUserProvider();
+            _connectedUserProvider = new MsalConnectedUserProvider();
         }
 
        

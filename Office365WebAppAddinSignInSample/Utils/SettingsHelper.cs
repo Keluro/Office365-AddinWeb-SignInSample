@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Web;
-using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using Microsoft.Identity.Client;
+using ADALClientCredential = Microsoft.IdentityModel.Clients.ActiveDirectory.ClientCredential;
+using MSALClientCredential = Microsoft.Identity.Client.ClientCredential;
 
 namespace Office365WebAppAddinSignInSample.Utils
 {
@@ -11,9 +13,9 @@ namespace Office365WebAppAddinSignInSample.Utils
     {
         public const string GraphApiMyOrganization = GraphApi + "myorganization";
         public const string GraphApiMe = @"https://graph.windows.net/me?api-version=1.6";
-        private const string _authorizationUri = "https://login.windows.net";
+        private const string _authorizationUri = "https://login.microsoftonline.com/common/oauth2/v2.0/authorize";
         public const string GraphApi = "https://graph.windows.net/";
-        private const string _authority = "https://login.windows.net/common/";
+        private const string _authority = "https://login.microsoftonline.com/common/v2.0/";
 
 
         public static string ClientIdApp2
@@ -25,13 +27,31 @@ namespace Office365WebAppAddinSignInSample.Utils
                 return clientId2;
             }
         }
-        public static ClientCredential GetApp2Credentials()
+
+        public static string ClientSecret => ConfigurationManager.AppSettings["ida:AppKeyApp"];
+
+        public static ADALClientCredential GetApp2Credentials()
         {
             string appkey2 = ConfigurationManager.AppSettings["ida:AppKeyApp"];
             if (string.IsNullOrEmpty(appkey2)) { throw new ArgumentException("AppKeyApp is null or empty"); }
 
-            return new ClientCredential(ClientIdApp2, appkey2);
+            return new ADALClientCredential(ClientIdApp2, appkey2);
         }
+
+        public static ConfidentialClientApplication GetClientApplication()
+        {
+            MSALClientCredential credential = new MSALClientCredential(ClientSecret);
+            var app = new ConfidentialClientApplication(ConfigurationManager.AppSettings["ida:ClientIdApp"], "https://localhost:44301/", credential, TokenCache.DefaultSharedUserTokenCache);
+            return app;
+        }
+
+        //public static ConfidentialClientApplication GetApplication()
+        //{
+        //    var clientCredentials = new ClientCredential(ConfigurationManager.AppSettings["ida:ClientIdApp"],
+        //        ConfigurationManager.AppSettings["ida:AppKeyApp"]);
+
+        //    return new ConfidentialClientApplication();
+        //}
        
         public static string AuthorizationUri
         {
